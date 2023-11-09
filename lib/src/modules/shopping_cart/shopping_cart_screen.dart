@@ -16,7 +16,6 @@ class ShoppingCartScreen extends StatefulWidget {
 
 class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
   bool _selected = false;
-
   void initState() {
     super.initState();
     SystemChrome.setSystemUIOverlayStyle(
@@ -24,6 +23,17 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
         statusBarColor: Colors.white,
       ),
     );
+  }
+
+  var counter = 1;
+  void productIncrement() {
+    setState(() {
+      counter ++;
+    });
+  }void productDecrement() {
+    setState(() {
+      counter --;
+    });
   }
 
   @override
@@ -161,35 +171,49 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                           child: Container(
                             child: Row(
                               children: [
-                                Container(
-                                  height: 35,
-                                  width: 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: Center(
-                                    child: Icon(Icons.add),
-                                  ),
-                                ),
-                                Container(
-                                  height: 35,
-                                  width: 35,
-                                  child: Center(
-                                    child: Text(
-                                      '01',
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 18),
+                                InkWell(
+                                  onTap: () {
+                                    productIncrement();
+                                  },
+                                  child: Container(
+                                    height: 35,
+                                    width: 35,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Center(
+                                      child: Icon(Icons.add),
                                     ),
                                   ),
                                 ),
                                 Container(
                                   height: 35,
                                   width: 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(5)),
                                   child: Center(
-                                    child: Icon(Icons.remove),
+                                    child: Text(counter.toString(),
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 18),
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    if (counter == 1) {
+
+                                    }
+                                    else {
+                                      productDecrement();
+                                    }
+                                  },
+                                  child: Container(
+                                    height: 35,
+                                    width: 35,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Center(
+                                      child: Icon(Icons.remove),
+                                    ),
                                   ),
                                 ),
                               ],
