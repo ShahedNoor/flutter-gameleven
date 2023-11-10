@@ -35,8 +35,9 @@ class _GameLevenState extends State<GameLeven> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CustomTheme().themeData,
-      home:   SplashScreen(),
+      home:  SplashScreen(),
           // HomeScreen(),
+          // Text comment
     );
   }
 }
