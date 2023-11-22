@@ -4,7 +4,8 @@ import 'package:gameleven/src/modules/account/account_screen.dart';
 import 'package:gameleven/src/modules/shopping_cart/shopping_cart_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  final index;
+  const BottomNavBar({super.key, required this.index});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -18,7 +19,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     'assets/images/bottom_navigation_bar_icons/user_icon.png',
   ];
 
-  var _currentIndex = 0;
+  late int _currentIndex = widget.index;
   void _onItemTapped(index) {
     setState(() {
       _currentIndex = index;

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gameleven/src/data/global_widgets/bottom_navigation_bar.dart';
 import 'package:gameleven/src/data/global_widgets/theme_data.dart';
+import 'package:gameleven/src/modules/account/local_widgets/profile_bottom_section.dart';
+import 'package:gameleven/src/modules/account/local_widgets/profile_middle_section.dart';
+import 'package:gameleven/src/modules/account/local_widgets/profile_top_section.dart';
 
 import '../../data/utils/colors.dart';
 
@@ -12,14 +16,8 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  String profileImage = 'assets/images/profile_images/profile.png';
-  List icons = [
-    'assets/images/profile_images/icons/home_icon.png',
-    'assets/images/profile_images/icons/profile_icon.png',
-    'assets/images/profile_images/icons/location_icon.png',
-    'assets/images/profile_images/icons/language_icon.png',
-    'assets/images/profile_images/icons/logout_icon.png'
-  ];
+  final floatingIcon =
+      'assets/images/floating_action_bar_icons/floating_icon.png';
   @override
   void initState() {
     super.initState();
@@ -56,50 +54,21 @@ class _AccountScreenState extends State<AccountScreen> {
           ),
           elevation: 0,
         ),
+        bottomNavigationBar: BottomNavBar(index: 3,),
+        floatingActionButtonLocation:
+        FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: ImageIcon(AssetImage(floatingIcon)),
+        ),
         body: ListView(
           children: [
             // Profile image, name & phone number
-            Container(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 25),
-              color: Colors.white,
-              child: Center(
-                child: Column(
-                  children: [
-                    Container(
-                      height: 100,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage(profileImage)),
-                        borderRadius: BorderRadius.circular(100)
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    Text('Jonathan Smith', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
-                    Text('018373636733', style: TextStyle(color: Colors.grey),),
-                  ],
-                )
-              ),
-            ),
-            Container(
-              child: Center(
-                child: Column(
-                  children: [
-                    ListTile(
-                      leading: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(icons[0])
-                          )
-                        ),
-                      ),
-                      title: Text('Order Details'),
-                      subtitle: Container(width: 250, color: Colors.black,)
-                    )
-                  ],
-                ),
-              ),
-            ),
+            ProfileTopSection(),
+            // Settings section
+            ProfileMiddleSection(),
+            //   Logout section
+            ProfileBottomSection()
           ],
         ),
       ),
