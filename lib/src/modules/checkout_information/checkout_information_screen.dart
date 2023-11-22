@@ -44,7 +44,7 @@ class _CheckoutInformationScreenState extends State<CheckoutInformationScreen> {
           ),
           toolbarHeight: 40,
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: CustomColors().backgroundColor,
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

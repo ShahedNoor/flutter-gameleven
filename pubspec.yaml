@@ -110,6 +110,12 @@ flutter:
     - assets/images/best_sale_product_images/mouse_icon.png
     - assets/images/best_sale_product_images/cart_icon.png
     - assets/images/details_screen_images/coupon_icon.png
+    - assets/images/profile_images/profile.png
+    - assets/images/profile_images/icons/home_icon.png
+    - assets/images/profile_images/icons/profile_icon.png
+    - assets/images/profile_images/icons/location_icon.png
+    - assets/images/profile_images/icons/language_icon.png
+    - assets/images/profile_images/icons/logout_icon.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

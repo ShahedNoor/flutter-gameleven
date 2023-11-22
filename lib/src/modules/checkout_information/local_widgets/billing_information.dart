@@ -16,7 +16,6 @@ class _BillingInformationState extends State<BillingInformation> {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 10),
             padding: EdgeInsets.fromLTRB(14, 10, 14, 10),
             color: Colors.white,
             child: Row(

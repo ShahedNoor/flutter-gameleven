@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gameleven/src/controllers/home_controller.dart';
 import 'package:gameleven/src/data/global_widgets/theme_data.dart';
+import 'package:gameleven/src/modules/shopping_cart/local_widgets/shopping_cart_bottom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../data/utils/colors.dart';
@@ -20,7 +21,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
     super.initState();
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
+        statusBarColor: CustomColors().backgroundColor,
       ),
     );
   }
@@ -52,7 +53,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
           ),
           toolbarHeight: 40,
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: CustomColors().backgroundColor,
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -70,17 +71,14 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             )
           ],
         ),
+        bottomNavigationBar: ShoppingCartBottomNav(),
         body: ListView(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 10),
+              margin: EdgeInsets.only(bottom: 10),
               padding: EdgeInsets.only(bottom: 25),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  topLeft: Radius.circular(20),
-                ),
               ),
               child: Column(
                 children: [
@@ -219,13 +217,13 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                               ],
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
