@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gameleven/src/controllers/home_controller.dart';
 import 'package:gameleven/src/data/utils/colors.dart';
 import 'package:gameleven/src/modules/details/details_screen.dart';
@@ -17,6 +18,19 @@ class BestSaleProduct extends StatefulWidget {
 }
 
 class _BestSaleProductState extends State<BestSaleProduct> {
+
+  void flutterToast() {
+    Fluttertoast.showToast(
+        msg: "Item Added To Cart",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final bestSaleProductsData =
@@ -151,7 +165,11 @@ class _BestSaleProductState extends State<BestSaleProduct> {
                                         color: CustomColors().headingTextColor),
                                   ),
                                   InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      final homeController = Provider.of<HomeController>(context, listen: false);
+                                      homeController.addToCart(bestSaleProductsData[index]);
+                                      flutterToast();
+                                    },
                                     child: Container(
                                       height: 30,
                                       width: 30,

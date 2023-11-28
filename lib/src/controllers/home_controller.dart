@@ -119,6 +119,7 @@ class HomeController with ChangeNotifier {
 
   dynamic bestSaleProductsData = [
     {
+      'id': 0,
       'image': 'assets/images/best_sale_product_images/headphone_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
@@ -129,6 +130,8 @@ class HomeController with ChangeNotifier {
       'discount': '-46%',
       'rating': '4.6',
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
+      'quantity': 1,
+      'selected': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -152,6 +155,7 @@ class HomeController with ChangeNotifier {
       'individual_rating_05': '1(1)',
     },
     {
+      'id': 1,
       'image': 'assets/images/best_sale_product_images/gaming_chair_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
@@ -162,6 +166,8 @@ class HomeController with ChangeNotifier {
       'discount': '-46%',
       'rating': '4.6',
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
+      'quantity': 1,
+      'selected': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -185,6 +191,7 @@ class HomeController with ChangeNotifier {
       'individual_rating_05': '1(1)',
     },
     {
+      'id': 2,
       'image': 'assets/images/best_sale_product_images/computer_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
@@ -195,6 +202,8 @@ class HomeController with ChangeNotifier {
       'discount': '-46%',
       'rating': '4.6',
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
+      'quantity': 1,
+      'selected': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -218,6 +227,7 @@ class HomeController with ChangeNotifier {
       'individual_rating_05': '1(1)',
     },
     {
+      'id': 3,
       'image': 'assets/images/best_sale_product_images/mouse_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
@@ -228,6 +238,8 @@ class HomeController with ChangeNotifier {
       'discount': '-46%',
       'rating': '4.6',
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
+      'quantity': 1,
+      'selected': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -251,4 +263,22 @@ class HomeController with ChangeNotifier {
       'individual_rating_05': '1(1)',
     },
   ];
+
+  // Add to cart function
+  List<Map<String, dynamic>> cartItems = [];
+
+  void addToCart(Map<String, dynamic> product) {
+    // Check if the product is already in the cart
+    bool isProductInCart = cartItems.any((cartItem) => cartItem['id'] == product['id']);
+
+    if (isProductInCart) {
+      // If the product is already in the cart, find the cart item and increase the quantity
+      final cartItem = cartItems.firstWhere((cartItem) => cartItem['id'] == product['id']);
+      cartItem['quantity']++;
+    } else {
+      // If the product is not already in the cart, add it to the cart
+      cartItems.add(product);
+    }
+    notifyListeners();
+  }
 }
