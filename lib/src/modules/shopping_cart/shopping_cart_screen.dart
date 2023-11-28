@@ -27,6 +27,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
   @override
   Widget build(BuildContext context) {
     final shoppingCartData = Provider.of<HomeController>(context).cartItems;
+    final _shoppingCartData = Provider.of<HomeController>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CustomTheme().themeData,
@@ -50,7 +51,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
           actions: [
             IconButton(
               onPressed: () {
-                print(shoppingCartData);
+                _shoppingCartData.removeSelectedItemsFromCart();
               },
               icon: Icon(
                 Icons.delete_outline,

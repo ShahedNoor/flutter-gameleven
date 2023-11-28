@@ -281,4 +281,11 @@ class HomeController with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  void removeSelectedItemsFromCart() {
+    // Remove items from cart where 'selected' is true
+    cartItems.removeWhere((cartItem) => cartItem['selected'] == true);
+    notifyListeners();
+  }
+
 }
