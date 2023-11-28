@@ -58,7 +58,9 @@ class _AccountScreenState extends State<AccountScreen> {
         floatingActionButtonLocation:
         FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           child: ImageIcon(AssetImage(floatingIcon)),
         ),
         body: ListView(

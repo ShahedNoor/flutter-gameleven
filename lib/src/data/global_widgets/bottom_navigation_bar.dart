@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gameleven/src/controllers/home_controller.dart';
 import 'package:gameleven/src/data/utils/colors.dart';
 import 'package:gameleven/src/modules/account/account_screen.dart';
 import 'package:gameleven/src/modules/shopping_cart/shopping_cart_screen.dart';
+import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {
   final index;
@@ -28,6 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    final cartItemProvider = Provider.of<HomeController>(context).cartItems;
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
       notchMargin: 10,
@@ -70,17 +73,38 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MaterialButton(
-                  minWidth: 40,
-                  onPressed: () {
-                    _onItemTapped(2);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCartScreen()));
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                Container(
+                  child: Stack(
                     children: [
-                      ImageIcon(AssetImage(bottomNavIcons[2]), color: _currentIndex == 2 ? CustomColors().headingTextColor : Colors.grey,),
-                      Text('Cart', style: TextStyle(color: _currentIndex == 2 ? CustomColors().headingTextColor : Colors.grey),),
+                      MaterialButton(
+                        minWidth: 40,
+                        onPressed: () {
+                          _onItemTapped(2);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCartScreen()));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ImageIcon(AssetImage(bottomNavIcons[2]), color: _currentIndex == 2 ? CustomColors().headingTextColor : Colors.grey,),
+                            Text('Cart', style: TextStyle(color: _currentIndex == 2 ? CustomColors().headingTextColor : Colors.grey),),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 6,
+                        right: 10,
+                        child: Container(
+                          height: 15,
+                          width: 15,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: CustomColors().headingTextColor
+                          ),
+                          child: Center(
+                            child: Text(cartItemProvider.length.toString(), style: TextStyle(color: Colors.white, fontSize: 10),),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
