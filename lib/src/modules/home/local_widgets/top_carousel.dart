@@ -23,7 +23,7 @@ class _TopCarouselState extends State<TopCarousel> {
     super.initState();
 
     _timer = Timer.periodic(
-      Duration(seconds: 5),
+      Duration(seconds: 3),
           (timer) {
         if (_controller.page == _carouselData.length - 1) {
           _controller.jumpToPage(0);
