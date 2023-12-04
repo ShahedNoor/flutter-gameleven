@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class DetailsScreen extends StatefulWidget {
-  final image,
+  var image,
       price,
       original_price,
       discount,
@@ -38,6 +38,7 @@ class DetailsScreen extends StatefulWidget {
       individualRating04,
       individualRatingBar05,
       individualRating05,
+      wishList,
       // Constructor for BottomSheet
       title;
   DetailsScreen({
@@ -65,7 +66,9 @@ class DetailsScreen extends StatefulWidget {
     required this.individualRating04,
     required this.individualRatingBar05,
     required this.individualRating05,
-    required this.title
+    this.wishList,
+    required this.title,
+
   });
 
   @override
@@ -107,6 +110,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           title: widget.title,
           originalPrice: widget.original_price,
           price: widget.price,
+          wishList: widget.wishList,
         ),
         body: ListView(
           children: [

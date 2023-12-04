@@ -112,6 +112,7 @@ class _BestSaleProductState extends State<BestSaleProduct> {
                               ['individual_rating_bar_05'],
                           individualRating05: bestSaleProductsData[index]
                               ['individual_rating_05'],
+                        wishList: bestSaleProductsData[index],
                         title: bestSaleProductsData[index]['title'],
                       ),
                     ),

@@ -3,6 +3,7 @@ import 'package:gameleven/src/controllers/home_controller.dart';
 import 'package:gameleven/src/data/utils/colors.dart';
 import 'package:gameleven/src/modules/account/account_screen.dart';
 import 'package:gameleven/src/modules/shopping_cart/shopping_cart_screen.dart';
+import 'package:gameleven/src/modules/wishlist/wishlist_screen.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -59,6 +60,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   minWidth: 40,
                   onPressed: () {
                     _onItemTapped(1);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => WishlistScreen()));
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

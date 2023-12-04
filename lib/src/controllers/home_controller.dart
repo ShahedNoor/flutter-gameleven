@@ -132,6 +132,7 @@ class HomeController with ChangeNotifier {
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
       'quantity': 1,
       'selected': false,
+      'isFavourite': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -168,6 +169,7 @@ class HomeController with ChangeNotifier {
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
       'quantity': 1,
       'selected': false,
+      'isFavourite': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -204,6 +206,7 @@ class HomeController with ChangeNotifier {
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
       'quantity': 1,
       'selected': false,
+      'isFavourite': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -240,6 +243,7 @@ class HomeController with ChangeNotifier {
       'cart_icon': 'assets/images/best_sale_product_images/cart_icon.png',
       'quantity': 1,
       'selected': false,
+      'isFavourite': false,
 
       // Voucher Information
       'voucher_title': 'First Order Voucher',
@@ -283,8 +287,52 @@ class HomeController with ChangeNotifier {
   }
 
   void removeSelectedItemsFromCart() {
+    // Update quantity to 0 for selected items
+    cartItems.forEach((cartItem) {
+      if (cartItem['selected'] == true) {
+        cartItem['quantity'] = 1;
+      }
+    });
+
     // Remove items from cart where 'selected' is true
     cartItems.removeWhere((cartItem) => cartItem['selected'] == true);
+
+    notifyListeners();
+  }
+
+  List<Map<String, dynamic>> favouriteItems = [];
+
+  void addToFavourite(int productId) {
+    // Find the index of the product with the given ID
+    int index = bestSaleProductsData.indexWhere((product) => product['id'] == productId);
+
+    if (index != -1) {
+      // Check if the product is already in favouriteItems
+      bool isAlreadyInFavourites =
+      favouriteItems.any((favouriteItem) => favouriteItem['id'] == productId);
+
+      if (!isAlreadyInFavourites) {
+        // If not in favourites, add it
+        favouriteItems.add(bestSaleProductsData[index]);
+      } else {
+        // If already in favourites, remove it
+        favouriteItems.removeWhere((favouriteItem) => favouriteItem['id'] == productId);
+      }
+
+      // Toggle the isFavourite flag in bestSaleProductsData
+      bestSaleProductsData[index]['isFavourite'] = !isAlreadyInFavourites;
+    }
+
+    notifyListeners();
+  }
+
+  void removeFromFavourite() {
+    for (int i = 0; i < bestSaleProductsData.length; i++) {
+      if (bestSaleProductsData[i]['isFavourite'] == true) {
+        favouriteItems.remove(bestSaleProductsData[i]);
+        bestSaleProductsData[i]['isFavourite'] = false;
+      }
+    }
     notifyListeners();
   }
 
