@@ -32,7 +32,8 @@ class _WishlistScreenState extends State<WishlistScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final dataProvider = Provider.of<HomeController>(context);
+    final bestSaleProductsData =
+        Provider.of<HomeController>(context).favouriteItems;
     final wishlistItems = Provider.of<HomeController>(context, listen: false);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -70,7 +71,54 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 itemCount: wishlistItems.favouriteItems.length,
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(
+                        image: bestSaleProductsData[index]['image'],
+                        price: bestSaleProductsData[index]['price'],
+                        original_price: bestSaleProductsData[index]
+                        ['original_price'],
+                        discount: bestSaleProductsData[index]['discount'],
+                        short_description: bestSaleProductsData[index]
+                        ['short_description'],
+                        rating: bestSaleProductsData[index]['rating'],
+                        voucherTitle: bestSaleProductsData[index]
+                        ['voucher_title'],
+                        voucherDiscount: bestSaleProductsData[index]
+                        ['voucher_discount'],
+                        voucherValidity: bestSaleProductsData[index]
+                        ['voucher_validity'],
+                        description: bestSaleProductsData[index]
+                        ['description'],
+                        overallRating: bestSaleProductsData[index]
+                        ['overall_rating'],
+                        overallRatingBar: bestSaleProductsData[index]
+                        ['overall_rating_bar'],
+                        bottomRating: bestSaleProductsData[index]
+                        ['bottom_rating'],
+                        individualRatingBar01: bestSaleProductsData[index]
+                        ['individual_rating_bar_01'],
+                        individualRating01: bestSaleProductsData[index]
+                        ['individual_rating_01'],
+                        individualRatingBar02: bestSaleProductsData[index]
+                        ['individual_rating_bar_02'],
+                        individualRating02: bestSaleProductsData[index]
+                        ['individual_rating_02'],
+                        individualRatingBar03: bestSaleProductsData[index]
+                        ['individual_rating_bar_03'],
+                        individualRating03: bestSaleProductsData[index]
+                        ['individual_rating_03'],
+                        individualRatingBar04: bestSaleProductsData[index]
+                        ['individual_rating_bar_04'],
+                        individualRating04: bestSaleProductsData[index]
+                        ['individual_rating_04'],
+                        individualRatingBar05: bestSaleProductsData[index]
+                        ['individual_rating_bar_05'],
+                        individualRating05: bestSaleProductsData[index]
+                        ['individual_rating_05'],
+                        wishList: bestSaleProductsData[index],
+                        title: bestSaleProductsData[index]['title'],
+                      ),));
+                    },
                     child: Container(
                       margin: EdgeInsets.only(bottom: 10),
                       padding: EdgeInsets.only(bottom: 25),
