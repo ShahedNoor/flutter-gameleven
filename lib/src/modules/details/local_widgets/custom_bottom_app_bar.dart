@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gameleven/src/controllers/home_controller.dart';
 import 'package:gameleven/src/modules/checkout_information/checkout_information_screen.dart';
+import 'package:gameleven/src/modules/shopping_cart/shopping_cart_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/utils/colors.dart';
@@ -224,27 +225,32 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
               decoration: BoxDecoration(
                   border: Border.all(color: CustomColors().headingTextColor),
                   borderRadius: BorderRadius.circular(5)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4.0),
-                    child: Text(
-                      'My Cart',
-                      style: TextStyle(color: CustomColors().headingTextColor),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingCartScreen()));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4.0),
+                      child: Text(
+                        'My Cart',
+                        style: TextStyle(color: CustomColors().headingTextColor),
+                      ),
                     ),
-                  ),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFFC6600).withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Center(
-                      child: Text('1'),
-                    ),
-                  )
-                ],
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFC6600).withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Center(
+                        child: Text(favouriteItemsProvider.cartItems.length.toString()),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             InkWell(
