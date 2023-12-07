@@ -5,6 +5,7 @@ import 'package:gameleven/src/data/global_widgets/theme_data.dart';
 import 'package:gameleven/src/modules/checkout_information/checkout_information_screen.dart';
 import 'package:gameleven/src/modules/details/details_screen.dart';
 import 'package:gameleven/src/modules/home/home_screen.dart';
+import 'package:gameleven/src/modules/sign_in/sign_in_screen.dart';
 import 'package:gameleven/src/modules/skip/skip_screen.dart';
 import 'package:gameleven/src/modules/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -36,8 +37,7 @@ class _GameLevenState extends State<GameLeven> {
       debugShowCheckedModeBanner: false,
       theme: CustomTheme().themeData,
       home:  // SplashScreen(),
-           HomeScreen(),
-          // Text comment
+            HomeScreen(),
     );
   }
 }

@@ -12,6 +12,7 @@ class CustomColors {
   final hotCategoriesBackground = Color(0xFFEFED3B9);
   final brandsMenuBackground = Color(0xFF24CAAA);
   final voucherContainerColor = Color(0xFFA30D69);
+  final signInAppBarColor = Color(0xFF72142C);
 
   // Colors for promotion menu
   final promotionMenuColor = [

@@ -117,6 +117,11 @@ flutter:
     - assets/images/profile_images/icons/location_icon.png
     - assets/images/profile_images/icons/language_icon.png
     - assets/images/profile_images/icons/logout_icon.png
+    - assets/images/sign_in_and_sign_up_images/sing_in_and_sign_up_logo.png
+    - assets/images/sign_in_and_sign_up_images/social_icons/facebook.png
+    - assets/images/sign_in_and_sign_up_images/social_icons/google.png
+    - assets/images/sign_in_and_sign_up_images/social_icons/instagram.png
+    - assets/images/sign_in_and_sign_up_images/social_icons/linkedin.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
