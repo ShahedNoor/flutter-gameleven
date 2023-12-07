@@ -152,7 +152,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                                   },
                                   child: InkWell(
                                     onTap: () {
-                                      wishlistItems.removeFromFavourite();
+                                      wishlistItems.removeFromWishlist(index);
                                     },
                                     child: Container(
                                       height: 70,

@@ -326,14 +326,27 @@ class HomeController with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeFromFavourite() {
-    for (int i = 0; i < bestSaleProductsData.length; i++) {
-      if (bestSaleProductsData[i]['isFavourite'] == true) {
-        favouriteItems.remove(bestSaleProductsData[i]);
-        bestSaleProductsData[i]['isFavourite'] = false;
+  void removeFromWishlist(int index) {
+    // Check if the index is valid
+    if (index >= 0 && index < favouriteItems.length) {
+      // Get the product ID of the item to be removed
+      int productId = favouriteItems[index]['id'];
+
+      // Find the index of the product with the given ID in bestSaleProductsData
+      int productIndex =
+      bestSaleProductsData.indexWhere((product) => product['id'] == productId);
+
+      if (productIndex != -1) {
+        // Toggle the isFavourite flag in bestSaleProductsData
+        bestSaleProductsData[productIndex]['isFavourite'] = false;
       }
+
+      // Remove the item from the favouriteItems list
+      favouriteItems.removeAt(index);
+
+      // Notify listeners to update the UI
+      notifyListeners();
     }
-    notifyListeners();
   }
 
 }
