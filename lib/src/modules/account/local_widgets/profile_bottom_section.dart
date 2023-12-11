@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gameleven/src/modules/sign_in/sign_in_screen.dart';
 
 import '../../../data/utils/colors.dart';
@@ -19,6 +18,13 @@ class _ProfileBottomSectionState extends State<ProfileBottomSection> {
     return InkWell(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
+        setState(() {
+          SystemChrome.setSystemUIOverlayStyle(
+            SystemUiOverlayStyle(
+              statusBarColor: CustomColors().signInAppBarColor,
+            ),
+          );
+        });
       },
       child: Container(
         height: 80,

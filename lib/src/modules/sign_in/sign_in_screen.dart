@@ -31,7 +31,6 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,6 +41,13 @@ class _SignInScreenState extends State<SignInScreen> {
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
+              setState(() {
+                SystemChrome.setSystemUIOverlayStyle(
+                  SystemUiOverlayStyle(
+                    statusBarColor: CustomColors().backgroundColor,
+                  ),
+                );
+              });
             },
             icon: Icon(Icons.arrow_back),
           ),
