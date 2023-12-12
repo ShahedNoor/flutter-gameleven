@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: CustomColors().backgroundColor,
           appBar: CustomAppBar(),
           drawer: Drawer(),
-          bottomNavigationBar: BottomNavBar(index: 0,),
+          bottomNavigationBar: BottomNavBar(index: -1,),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(

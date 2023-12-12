@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gameleven/src/controllers/home_controller.dart';
 import 'package:gameleven/src/data/utils/colors.dart';
 import 'package:gameleven/src/modules/account/account_screen.dart';
+import 'package:gameleven/src/modules/categories/categories_scree.dart';
 import 'package:gameleven/src/modules/shopping_cart/shopping_cart_screen.dart';
 import 'package:gameleven/src/modules/wishlist/wishlist_screen.dart';
 import 'package:provider/provider.dart';
@@ -47,6 +48,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   minWidth: 40,
                   onPressed: () {
                     _onItemTapped(0);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CategoriesScreen()));
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

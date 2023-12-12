@@ -123,8 +123,10 @@ class HomeController with ChangeNotifier {
       'image': 'assets/images/best_sale_product_images/headphone_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
-      'short_description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
-      'description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
+      'short_description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
+      'description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
       'original_price': '46,0000.00 XAF',
       'price': '500.00 SAR',
       'discount': '-46%',
@@ -160,8 +162,10 @@ class HomeController with ChangeNotifier {
       'image': 'assets/images/best_sale_product_images/gaming_chair_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
-      'short_description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
-      'description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
+      'short_description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
+      'description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
       'original_price': '46,0000.00 XAF',
       'price': '500.00 SAR',
       'discount': '-46%',
@@ -197,8 +201,10 @@ class HomeController with ChangeNotifier {
       'image': 'assets/images/best_sale_product_images/computer_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
-      'short_description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
-      'description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
+      'short_description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
+      'description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
       'original_price': '46,0000.00 XAF',
       'price': '500.00 SAR',
       'discount': '-46%',
@@ -234,8 +240,10 @@ class HomeController with ChangeNotifier {
       'image': 'assets/images/best_sale_product_images/mouse_icon.png',
       'title': 'Power Bank Water Gold',
       'subtitle': 'Sound Box',
-      'short_description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
-      'description': 'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
+      'short_description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.',
+      'description':
+          'Strategies de Survie des Populations Africaines dans une Economie Mondialisée - L’expérience Camerounaise.Strategies de Survie des Populaions Africaines dans une Economie Mondi- L’expérience Camero',
       'original_price': '46,0000.00 XAF',
       'price': '500.00 SAR',
       'discount': '-46%',
@@ -268,16 +276,51 @@ class HomeController with ChangeNotifier {
     },
   ];
 
+  dynamic categoriesData = [
+    {
+      'title': 'Electronic Device',
+      'image': 'assets/images/best_sale_product_images/headphone_icon.png',
+      'subcategory_title': 'Xbox',
+      'product_name': 'Headphone'
+    },
+    {
+      'title': 'Furnitures Device',
+      'image': 'assets/images/best_sale_product_images/gaming_chair_icon.png',
+      'subcategory_title': 'Playstation 4',
+      'product_name': 'G11 Mouse'
+    },
+    {
+      'title': 'Casual Bag',
+      'image': 'assets/images/best_sale_product_images/computer_icon.png',
+      'subcategory_title': 'Gaming Setup',
+      'product_name': 'Gaming Pc'
+    },
+    {
+      'title': 'Gaming Mouse',
+      'image': 'assets/images/best_sale_product_images/mouse_icon.png',
+      'subcategory_title': 'TV & Audio'
+    },
+    {
+      'title': 'Gaming Pc',
+      'image': 'assets/images/best_sale_product_images/gaming_pc_icon.png',
+      'subcategory_title': 'Merchandise'
+    },
+    {'subcategory_title': 'Retro Gaming Consoles'},
+    {'subcategory_title': 'Pre Owned (Badel)'},
+  ];
+
   // Add to cart function
   List<Map<String, dynamic>> cartItems = [];
 
   void addToCart(Map<String, dynamic> product) {
     // Check if the product is already in the cart
-    bool isProductInCart = cartItems.any((cartItem) => cartItem['id'] == product['id']);
+    bool isProductInCart =
+        cartItems.any((cartItem) => cartItem['id'] == product['id']);
 
     if (isProductInCart) {
       // If the product is already in the cart, find the cart item and increase the quantity
-      final cartItem = cartItems.firstWhere((cartItem) => cartItem['id'] == product['id']);
+      final cartItem =
+          cartItems.firstWhere((cartItem) => cartItem['id'] == product['id']);
       cartItem['quantity']++;
     } else {
       // If the product is not already in the cart, add it to the cart
@@ -304,19 +347,21 @@ class HomeController with ChangeNotifier {
 
   void addToFavourite(int productId) {
     // Find the index of the product with the given ID
-    int index = bestSaleProductsData.indexWhere((product) => product['id'] == productId);
+    int index = bestSaleProductsData
+        .indexWhere((product) => product['id'] == productId);
 
     if (index != -1) {
       // Check if the product is already in favouriteItems
-      bool isAlreadyInFavourites =
-      favouriteItems.any((favouriteItem) => favouriteItem['id'] == productId);
+      bool isAlreadyInFavourites = favouriteItems
+          .any((favouriteItem) => favouriteItem['id'] == productId);
 
       if (!isAlreadyInFavourites) {
         // If not in favourites, add it
         favouriteItems.add(bestSaleProductsData[index]);
       } else {
         // If already in favourites, remove it
-        favouriteItems.removeWhere((favouriteItem) => favouriteItem['id'] == productId);
+        favouriteItems
+            .removeWhere((favouriteItem) => favouriteItem['id'] == productId);
       }
 
       // Toggle the isFavourite flag in bestSaleProductsData
@@ -333,8 +378,8 @@ class HomeController with ChangeNotifier {
       int productId = favouriteItems[index]['id'];
 
       // Find the index of the product with the given ID in bestSaleProductsData
-      int productIndex =
-      bestSaleProductsData.indexWhere((product) => product['id'] == productId);
+      int productIndex = bestSaleProductsData
+          .indexWhere((product) => product['id'] == productId);
 
       if (productIndex != -1) {
         // Toggle the isFavourite flag in bestSaleProductsData
@@ -348,5 +393,4 @@ class HomeController with ChangeNotifier {
       notifyListeners();
     }
   }
-
 }
